@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to tensors's documentation!
-===================================
+Tensor Notes
+============
 
 Contents:
 
@@ -15,12 +15,3 @@ Contents:
    mars
    gymnastics
    links
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
