@@ -158,6 +158,16 @@ their coordinate system** can agree on."
        \left(\Lambda^{-1}\right)^1_{\;\mu} \left(\Lambda^{-1}\right)^1_{\;\alpha} \\
     &= \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}
 
+Since
+
+.. math::
+
+    \left(\Lambda^{-1}\right)^\nu_{\;\mu} =
+    \begin{pmatrix}
+    1 & 0 \\
+    1 & 1
+    \end{pmatrix}
+
 "So, to compute the distance to Mount Eunostos in your coordinate system:"
 
 .. math::
@@ -183,4 +193,142 @@ orthonormal basis is just equal to the identity :math:`\delta_{\mu\alpha}`. In f
       & -1 &    &    \\
       &    & -1 &    \\
       &    &    & -1 \\
+      \end{pmatrix}
+
+Contra vs Covariant
+-------------------
+
+After arriving at Mount Eunostos, you decide to hike to the top. You'd like to
+get there as quick as possible. Luckily you created an elevation map the day
+before, :math:`h(x,y)`.
+
+"The elevation of this mountain, :math:`h(x,y)` is pretty complicated, but
+locally it just looks like this"
+
+.. math::
+
+    h(x,y) &\approx x + y
+
+or, in tensor notation
+
+.. math::
+
+    h(x^\mu) &\approx x^0 + x^1
+
+"Great! Let's calculate the path of steepest ascent from our current spot," your friend says.
+
+.. math::
+
+    \nabla h =
+    \begin{pmatrix}
+    \frac{\partial h}{\partial x} \\
+    \frac{\partial h}{\partial y}
     \end{pmatrix}
+    = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+
+"Ok, cool, but I'd actually like to know the gradient in **my** coordinate
+system. Don't worry, I know how to do it," your friend says.
+
+.. math::
+
+    \nabla h^\prime = \Lambda^\nu_{\;\mu} \nabla h^\mu =
+    \begin{pmatrix}
+    1 & 0 \\
+    -1 & 1 \\
+    \end{pmatrix}
+    \begin{pmatrix} 1 \\ 1 \end{pmatrix} =
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+
+"Wrong," you say.
+
+"Why am I wrong? The gradient of the elevation is a vector, and you showed me
+how to transform vectors."
+
+"The gradient of the elevation is a vector, but it is a **covariant** vector.
+And covariant vectors don't transform in the same way."
+
+"Wait, what?"
+
+"There are two kinds of vectors, **contravariant** and **covariant**. You are
+probably most familiar with **contravariant** vectors. These are the vectors
+used in Newton's classic laws for example, and the types of vectors which
+represent the location of objects. But, there are also **covariant** vectors
+which look like a vector but don't transform in the same way. I think the right
+way to think about it is this: when you describe something as a vector you are
+describing some *real physical object* with a set of numbers. When you change
+coordinate systems, and then look at the same *real* object in the different
+coordinate system you will describe it using some other numbers. It turns out
+that how you transform those numbers from one frame to the next *depends on the
+physical object you are describing*. And, in this case, the gradient of a
+scalar function doesn't transform like location vectors.
+
+"So, how does it transform?"
+
+"Let's see if we can figure it out. We know that the elevation is a scalar function and so we can describe it using your coordinates as follows:"
+
+.. math::
+
+    h(x^\prime,y^\prime) &= h(x^\mu) \\
+    &= h\left(\left(\Lambda^{-1}\right)^\nu_{\;\mu} x^{\prime\mu}\right) \\
+    &= h\left(\begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix} \begin{pmatrix}x^\prime \\ y^\prime\end{pmatrix}\right) \\
+    &= h\left(\begin{pmatrix}x^\prime \\ x^\prime + y^\prime\end{pmatrix}\right) \\
+    &= 2 x^\prime + y^\prime
+
+and therefore, you should have gotten
+
+.. math::
+
+    \nabla h^\prime = \begin{pmatrix}2 \\ 1\end{pmatrix}
+
+We can work out the correct transformation law by looking at the gradient in
+your coordinate system and expanding with the chain rule.
+
+.. math::
+
+    \nabla h^\prime &=
+    \begin{pmatrix}
+    \frac{\partial h^\prime}{\partial x^\prime} \\
+    \frac{\partial h^\prime}{\partial y^\prime}
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix}
+    \frac{\partial h}{\partial x} \frac{\partial x}{\partial x^\prime} + 
+    \frac{\partial h}{\partial y} \frac{\partial y}{\partial x^\prime} \\
+    \frac{\partial h}{\partial y} \frac{\partial y}{\partial y^\prime} + 
+    \frac{\partial h}{\partial x} \frac{\partial x}{\partial y^\prime} \\
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix}
+    \frac{\partial x}{\partial x^\prime} & \frac{\partial y}{\partial x^\prime} \\
+    \frac{\partial x}{\partial y^\prime} & \frac{\partial y}{\partial y^\prime}
+    \end{pmatrix}
+    \begin{pmatrix}
+    \frac{\partial h}{\partial x} \\
+    \frac{\partial h}{\partial y}
+    \end{pmatrix} \\
+    &=
+    \left(\Lambda^{-1}\right)^T \nabla h
+
+"So, you see, instead of transforming with a factor of :math:`\Lambda`, this
+type of vector transforms with a factor of :math:`\left(\Lambda^{-1}\right)^T`.
+These types of vectors, *covariant vectors*, are written with a **subscript**
+instead of a superscript like covariant vectors. So, we should write the
+gradient of the elevation in tensor notation as :math:`\nabla h_\mu`. Let's double check that we get the right answer."
+
+.. math::
+
+    \nabla h^\prime_\nu &= \left(\Lambda^{-1}\right)^T \nabla h \\
+    &= \left(\Lambda^{-1}\right)_\nu^{\;\mu} \nabla h_\mu \\
+    &=
+    \begin{pmatrix}
+    1 & 1 \\
+    0 & 1 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+    1 \\ 1
+    \end{pmatrix} \\
+    &= \begin{pmatrix} 2 \\ 1\end{pmatrix}
+
+"Awesome! It all makes so much sense," your friend says.
+
+And you hike up to the top of Mount Eunostos and enjoy the view!
