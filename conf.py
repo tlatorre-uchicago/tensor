@@ -33,7 +33,8 @@ import alabaster
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
-    'alabaster'
+    'alabaster',
+    'sphinxcontrib.tikz'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -188,6 +189,12 @@ htmlhelp_basename = 'tensorsdoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
+'preamble': """
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows}
+\usepackage{graphicx}
+""",
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
 

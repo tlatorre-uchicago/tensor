@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    intro
+   mars
 
 
 Indices and tables

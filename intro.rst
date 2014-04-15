@@ -25,10 +25,10 @@ of each vector. In the case of the dot product, then we will write
 
     \mathbf{u} \cdot \mathbf{v} = \sum_i u_i v_i
 
-where :math:`a_i` is the :math:`i\mathrm{th}` element of a.
+where :math:`u_i` is the :math:`i\mathrm{th}` element of u.
 
 Similarly, whereas in linear algebra one would write the operation of a matrix
-:math:`A` on a vector :math:`\mathbf{w}`, :math:`\mathbf{w} = M\mathbf{v}` as
+:math:`A` on a vector :math:`\mathbf{w}`, :math:`\mathbf{w} = A\mathbf{v}` as
 
 .. math::
 
@@ -46,8 +46,8 @@ In the index notation, this operation is expressed as
 
     w_i = \sum_j a_{ij} v_j
 
-which can be read as "the :math:`i\mathrm{th}` element of :math:`b` is equal to
-the dot product of :math:`a` with the :math:`i\mathrm{th}` row of :math:`M`."
+which can be read as "the :math:`i\mathrm{th}` element of :math:`w` is equal to
+the dot product of :math:`j` with the :math:`i\mathrm{th}` row of :math:`A`."
 
 One nice thing about the new notation is that since everything is written in
 terms of components, which are just numbers, everything commutes. For example,
