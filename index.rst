@@ -13,6 +13,8 @@ Contents:
 
    intro
    mars
+   gymnastics
+   links
 
 
 Indices and tables
