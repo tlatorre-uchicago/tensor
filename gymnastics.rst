@@ -17,13 +17,13 @@ Index Gymnastics
 
     .. math::
 
-        x_\mu x^\nu = g_{\nu\mu} x^\nu x^\mu
+        x_\mu y^\mu = g_{\nu\mu} x^\nu y^\mu
 
 .. topic:: Transformation of Contravariant Vector
 
     .. math::
 
-        x^\mu = \Lambda^\mu_{\;\nu} x^\nu
+        x^{\prime\mu} = \Lambda^\mu_{\;\nu} x^\nu
 
 .. topic:: Transformation of metric Tensor
 
