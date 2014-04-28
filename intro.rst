@@ -6,7 +6,7 @@ Introduction
 
 Before working with tensors, it is helpful to introduce a new notation for
 working with the standard vectors and matrices familiar in linear algebra. In
-linear algebra, and multivariable calculus operations with vectors and matrices
+linear algebra, and multivariable calculus, operations with vectors and matrices
 are typically expressed by some symbol where the operation is *implied*. For
 example, the dot product between two vectors :math:`u` and :math:`v` is
 expressed as
